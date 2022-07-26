@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Aux from '../../hoc/Auxilliary'
-const burger = () =>{ 
-return(
-    <Aux>
-    <div> Burger</div>
-    <div> Burger builder</div>
+import Bread from '../../components/Bread/Bread'
 
-    </Aux>
+class Burger extends Component{
 
-)
+    state = {
+        ingredients: {
+            salad: 0,
+            cheese: 5,
+            bacon: 0,
+            meat: 0,
+        }
+    }
 
+render(){
+    return(
+        <Aux>
+            <Bread ingredients = {this.state.ingredients}/>
+             <h2>Control</h2>
+
+        </Aux>
+
+    )
+
+}
 }
 
 
-export default burger;
+export default Burger;
