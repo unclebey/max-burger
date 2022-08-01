@@ -46,7 +46,13 @@ this.setState({
 }
 
 deleteIngredientHandler = (type) =>{
-    const oldCount = this.state.ingredients[type]
+    const oldCount = this.state.ingredients[type]; 
+    if (oldCount <=0) {
+      
+      return;
+      
+    }
+    
     const updatedCount = oldCount-1
     const updateIngredients = {
         ...this.state.ingredients
@@ -60,7 +66,7 @@ this.setState({
     ingredients: updateIngredients
 
 })
-
+ 
 }
 
 
@@ -69,10 +75,20 @@ this.setState({
 
 
 render(){
+
+const disabledInfo = {
+    ...this.state.ingredients
+} 
+for(let key in disabledInfo){
+    disabledInfo[key] = disabledInfo[key]<=0
+
+}
     return(
         <Aux>
             <Bread ingredients = {this.state.ingredients}/>
             <BuildControls 
+            disabled = {disabledInfo}
+            Price = { this.state.totalPrice}
             ingredientAdded = {this.addIngredientHandler}
             ingredientDelete ={this.deleteIngredientHandler} />
             
