@@ -11,7 +11,7 @@ const BuildControl = (props) => {
         <button className={classes.More} onClick = {props.added}>Add</button>
         <button className={classes.Less} onClick={props.delete} disabled = {props.disabled}>Delete</button>
 
-
+    
     </div>
   )
 }

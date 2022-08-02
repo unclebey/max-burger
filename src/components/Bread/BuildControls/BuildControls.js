@@ -20,6 +20,7 @@ const BuildControls = (props ) =>{
     
           <div className={classes.BuildControls}>
             <h1>Price: {props.Price}</h1>
+                
             {Control.map(ctrl =>{ 
               return <BuildControl
               key = {ctrl.label}
@@ -30,6 +31,7 @@ const BuildControls = (props ) =>{
               
             />
           })}
+           <button className={classes.OrderButton}disabled={!props.purchaseable}>Order</button>
           </div>
         
   )
